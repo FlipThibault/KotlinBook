@@ -1,4 +1,4 @@
-package com.flip.kotlinbook.presentation
+package com.flip.kotlinbook.presentation.base
 
 /**
  * Created by pthibau1 on 2017-10-17.

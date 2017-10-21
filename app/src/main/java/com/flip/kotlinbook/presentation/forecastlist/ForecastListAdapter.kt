@@ -2,31 +2,69 @@ package com.flip.kotlinbook.presentation.forecastlist
 
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
-import android.widget.TextView
-import com.flip.kotlinbook.presentation.DataProvider
+import com.flip.kotlinbook.presentation.base.DataProvider
+import com.flip.kotlinbook.presentation.base.Identifiable
+import com.flip.kotlinbook.presentation.base.BasicListInfoCellVIew
+import com.flip.kotlinbook.presentation.base.BasicListInfoCellViewModel
+import com.flip.kotlinbook.presentation.base.BasicListHeaderCellVIew
+import com.flip.kotlinbook.presentation.base.BasicListHeaderCellViewModel
 
 /**
  * Created by pthibau1 on 2017-10-17.
+ *
+ * The adapter should coordinate the events from the recycler view. It should also know
+ * which view to inflate for specific cell type. However it delegates all logic to a
+ * specific "RecyclerAdapterDelegate" which is in charge of any logic. The specific view bindings
+ * are done within the view holders; therefore, our adapter remains quite lean.
  */
-class ForecastListAdapter(val dataProvider: DataProvider<ForecastsViewModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
-    companion object {
-        val STANDARD_CELL_VIEW_TYPE = 0
-    }
+class ForecastListAdapter(val dataProvider: DataProvider<ForecastListViewModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
-        return ForecastItemViewHolder(TextView(parent?.context))
-    }
+        when (viewType) {
+            ForecastListViewModel.HEADER_CELL_VIEW_TYPE -> {
+                return ForecastListHeaderViewHolder(BasicListHeaderCellVIew(parent?.context))
+            }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
-        (holder is ForecastItemViewHolder).let { forecastHolder ->
-//            dataProvider.textView.text = items[position]
+            ForecastListViewModel.STANDARD_CELL_VIEW_TYPE -> {
+                return ForecastListItemViewHolder(BasicListInfoCellVIew(parent?.context))
+            }
+
+            else -> {
+                throw Exception("ForecastListAdapter does not support the view type sent")
+            }
         }
     }
 
-    override fun getItemCount(): Int = dataProvider.getData().getCount()
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
+        val viewType = getItemViewType(position)
+        when (viewType) {
+            ForecastListViewModel.HEADER_CELL_VIEW_TYPE -> {
+                (holder as? ForecastListHeaderViewHolder)?.let { forecastListHeaderViewHolder ->
+                    forecastListHeaderViewHolder.bindData(dataProvider.getData().getItem(position) as BasicListHeaderCellViewModel)
+                }
+            }
+
+            ForecastListViewModel.STANDARD_CELL_VIEW_TYPE -> {
+                (holder as? ForecastListItemViewHolder)?.let { forecastItemViewHolder ->
+                    forecastItemViewHolder.bindData(dataProvider.getData().getItem(position) as BasicListInfoCellViewModel)
+                }
+            }
+        }
+    }
 
     override fun getItemViewType(position: Int): Int {
-        return STANDARD_CELL_VIEW_TYPE
+        return dataProvider.getData().getItemViewType(position)
     }
+
+    override fun getItemCount(): Int {
+        return dataProvider.getData().getItemCount()
+    }
+
+    override fun getItemId(position: Int): Long {
+        (dataProvider.getData().getItem(position) as? Identifiable<String>)?.let { idenfitifableItem ->
+            return idenfitifableItem.getIdentifier().toLong()
+        }
+        throw ClassCastException("Your cell item (data) must implement Identifiable")
+    }
+
 }

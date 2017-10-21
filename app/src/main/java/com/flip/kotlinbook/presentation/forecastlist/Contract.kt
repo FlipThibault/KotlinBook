@@ -9,7 +9,7 @@ import com.flip.kotlinbook.presentation.base.BaseView
 class Contract {
 
     interface View : BaseView {
-
+        fun showData(viewModel: ForecastListViewModel)
     }
 
     interface Presenter : BasePresenter {
