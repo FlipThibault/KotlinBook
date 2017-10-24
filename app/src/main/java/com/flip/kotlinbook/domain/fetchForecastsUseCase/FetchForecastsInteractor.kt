@@ -1,6 +1,6 @@
 package com.flip.kotlinbook.domain.fetchForecastsUseCase
 
-import com.flip.kotlinbook.data.models.ForecastModel
+import com.flip.kotlinbook.data.model.ForecastModel
 
 /**
  * Created by pthibau1 on 2017-10-21.

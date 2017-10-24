@@ -1,7 +1,5 @@
 package com.flip.kotlinbook.presentation.base
 
-import com.flip.kotlinbook.presentation.base.Identifiable
-
 /**
  * Created by pthibau1 on 2017-10-20.
  *

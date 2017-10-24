@@ -1,4 +1,4 @@
-package com.flip.kotlinbook.data.models
+package com.flip.kotlinbook.data.model
 
 /**
  * Created by pthibau1 on 2017-10-17.

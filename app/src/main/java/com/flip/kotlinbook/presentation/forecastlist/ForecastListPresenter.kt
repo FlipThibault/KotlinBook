@@ -1,7 +1,7 @@
 package com.flip.kotlinbook.presentation.forecastlist
 
 import com.flip.kotlinbook.data.datasource.forecastdatasource.ForecastMemoryDataSourceImpl
-import com.flip.kotlinbook.data.models.ForecastModel
+import com.flip.kotlinbook.data.model.ForecastModel
 import com.flip.kotlinbook.domain.fetchForecastsUseCase.FetchForcastsInteractorImpl
 import com.flip.kotlinbook.domain.fetchForecastsUseCase.FetchForecastsInteractor
 import com.flip.kotlinbook.presentation.base.DataProvider

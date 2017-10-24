@@ -1,6 +1,6 @@
 package com.flip.kotlinbook.presentation.mapper
 
-import com.flip.kotlinbook.data.models.ForecastModel
+import com.flip.kotlinbook.data.model.ForecastModel
 import com.flip.kotlinbook.presentation.base.ListItemViewModel
 import com.flip.kotlinbook.presentation.base.BasicListInfoCellViewModel
 import com.flip.kotlinbook.presentation.base.BasicListHeaderCellViewModel
