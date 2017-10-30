@@ -1,15 +1,14 @@
 package com.flip.domain.fetchForecastsUseCase
 
-import com.flip.kotlinbook.data.datasource.forecastdatasource.ForecastDataSource
-import com.flip.kotlinbook.data.model.ForecastModel
+import com.flip.domain.model.ForecastModel
+import com.flip.domain.repository.ForecastRepository
 
 /**
  * Created by pthibau1 on 2017-10-21.
  */
-class FetchForcastsInteractorImpl(val dataSource: ForecastDataSource) : FetchForecastsInteractor {
-
+class FetchForcastsInteractorImpl(val repository: ForecastRepository) : FetchForecastsInteractor {
     override fun fetchForecasts(callback: FetchForecastsInteractor.Callback) {
-        dataSource.fetchAll(object:ForecastDataSource.MultipleItemCallback {
+        repository.fetchForecasts(object:ForecastRepository.Callback {
             override fun onSuccess(forecasts: List<ForecastModel>) {
                 callback.onSuccess(forecasts)
             }

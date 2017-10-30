@@ -1,18 +1,19 @@
 package forecastlist
 
 import base.DataProvider
-import com.flip.domain.fetchForecastsUseCase.FetchForcastsInteractorImpl
+import com.flip.data.repository.ForecastRepositoryImpl
 import mapper.ForecastListViewModelMapper
+import com.flip.domain.fetchForecastsUseCase.FetchForcastsInteractorImpl
 import com.flip.domain.fetchForecastsUseCase.FetchForecastsInteractor
 import com.flip.domain.model.ForecastModel
-import com.flip.data.forecastdatasource.ForecastMemoryDataSourceImpl
+
 /**
  * Created by pthibau1 on 2017-10-18.
  */
 class ForecastListPresenter(val view: Contract.View) : Contract.Presenter, DataProvider<ForecastListViewModel> {
 
     //should be injected
-    val fetchItemsInteractor : FetchForecastsInteractor = FetchForcastsInteractorImpl(ForecastMemoryDataSourceImpl())
+    val fetchItemsInteractor : FetchForecastsInteractor = FetchForcastsInteractorImpl(ForecastRepositoryImpl())
     val dataMapper: ForecastListViewModelMapper = ForecastListViewModelMapper()
     var viewModel: ForecastListViewModel? = null
 

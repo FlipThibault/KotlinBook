@@ -1,6 +1,7 @@
-package com.flip.data.forecastdatasource
+package com.flip.data.repository.forecastdatasource
 
-import com.flip.data.model.ForecastModel
+import com.flip.data.entity.ForecastEntity
+import java.lang.Error
 
 /**
  * Created by pthibau1 on 2017-10-21.
@@ -8,12 +9,12 @@ import com.flip.data.model.ForecastModel
 interface ForecastDataSource {
 
     interface MultipleItemCallback {
-        fun onSuccess(forecasts : List<ForecastModel>)
+        fun onSuccess(forecasts : List<ForecastEntity>)
         fun onFailure(error: Error)
     }
 
     interface SingleItemCallback {
-        fun onSuccess(forecasts : ForecastModel)
+        fun onSuccess(forecasts : ForecastEntity)
         fun onFailure(error: Error)
     }
 

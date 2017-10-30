@@ -1,11 +1,11 @@
-package com.flip.domain.fetchForecastsUseCase
+package com.flip.domain.repository
 
 import com.flip.domain.model.ForecastModel
 
 /**
- * Created by pthibau1 on 2017-10-21.
+ * Created by pthibau1 on 2017-10-30.
  */
-interface FetchForecastsInteractor {
+interface ForecastRepository {
 
     interface Callback {
         fun onSuccess(forecasts : List<ForecastModel>)

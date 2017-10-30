@@ -1,6 +1,6 @@
 package mapper
 
-import com.flip.data.model.ForecastModel
+import com.flip.domain.model.ForecastModel
 import base.ListItemViewModel
 import base.BasicListInfoCellViewModel
 import base.BasicListHeaderCellViewModel
