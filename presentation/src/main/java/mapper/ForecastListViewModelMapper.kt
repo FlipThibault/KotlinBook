@@ -18,7 +18,7 @@ class ForecastListViewModelMapper {
 
     fun map(dataModels: Collection<ForecastModel>) : ForecastListViewModel {
         val listItems : MutableList<ListItemViewModel> = dataModels.map {
-            BasicListInfoCellViewModel(it.id, it.forecast)
+            BasicListInfoCellViewModel(it.description)
         }.toMutableList()
 
         listItems.add(0, BasicListHeaderCellViewModel("Header"))

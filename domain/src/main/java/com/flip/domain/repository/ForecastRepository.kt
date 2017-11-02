@@ -12,6 +12,6 @@ interface ForecastRepository {
         fun onFailure(error: Error)
     }
 
-    fun fetchForecasts(callback: Callback)
+    fun fetchForecastsByZipCode(zipCode: String, callback: Callback)
 
 }

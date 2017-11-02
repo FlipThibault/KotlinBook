@@ -1,6 +1,6 @@
 package com.flip.data.repository.forecastdatasource
 
-import com.flip.data.entity.ForecastEntity
+import com.flip.data.entity.network.Forecast
 import java.lang.Error
 
 /**
@@ -8,16 +8,11 @@ import java.lang.Error
  */
 interface ForecastDataSource {
 
-    interface MultipleItemCallback {
-        fun onSuccess(forecasts : List<ForecastEntity>)
+    interface Callback {
+        fun onSuccess(forecasts : List<Forecast>)
         fun onFailure(error: Error)
     }
 
-    interface SingleItemCallback {
-        fun onSuccess(forecasts : ForecastEntity)
-        fun onFailure(error: Error)
-    }
-
-    fun fetchAll(callback: MultipleItemCallback)
-    fun fetchById(id : String, callback: SingleItemCallback)
+    fun fetchAll(callback: Callback)
+    fun fetchByZipCode(zipCode : String, callback: Callback)
 }

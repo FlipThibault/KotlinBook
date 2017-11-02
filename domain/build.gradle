@@ -2,6 +2,7 @@ apply plugin: 'kotlin'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.anko:anko-common:$anko_version"
 }
 
 sourceCompatibility = "1.7"

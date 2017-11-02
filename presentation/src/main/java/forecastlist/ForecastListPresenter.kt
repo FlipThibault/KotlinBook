@@ -6,6 +6,8 @@ import mapper.ForecastListViewModelMapper
 import com.flip.domain.fetchForecastsUseCase.FetchForcastsInteractorImpl
 import com.flip.domain.fetchForecastsUseCase.FetchForecastsInteractor
 import com.flip.domain.model.ForecastModel
+import org.jetbrains.anko.async
+import org.jetbrains.anko.uiThread
 
 /**
  * Created by pthibau1 on 2017-10-18.
@@ -21,18 +23,24 @@ class ForecastListPresenter(val view: Contract.View) : Contract.Presenter, DataP
 
     override fun onCreate() {
         super.onCreate()
-        fetchItemsInteractor.fetchForecasts(object: FetchForecastsInteractor.Callback {
-            override fun onSuccess(forecasts: List<ForecastModel>) {
-                viewModel = dataMapper.map(forecasts)
-                viewModel?.let {
-                    view.showData(it)
+        async {
+            fetchItemsInteractor.fetchForecastsByZipCode("94043", object: FetchForecastsInteractor.Callback {
+                override fun onSuccess(forecasts: List<ForecastModel>) {
+                    uiThread {
+                        viewModel = dataMapper.map(forecasts)
+                        viewModel?.let {
+                            view.showData(it)
+                        }
+                    }
                 }
-            }
 
-            override fun onFailure(error: Error) {
-                view.showError()
-            }
-        })
+                override fun onFailure(error: Error) {
+                    uiThread {
+                        view.showError()
+                    }
+                }
+            })
+        }
     }
 
     override fun getData(): ForecastListViewModel {
