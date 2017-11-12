@@ -1,7 +1,7 @@
 package com.flip.data.mapper
 
+import com.flip.data.entity.network.City
 import com.flip.data.entity.network.Forecast
-import com.flip.data.response.ForecastResponse
 import com.flip.domain.model.ForecastModel
 import java.text.DateFormat
 import java.util.*
@@ -11,31 +11,12 @@ import java.util.*
  */
 class ForecastEntityDataMapper {
 
-    fun mapResponseToEntity(forecastResponse: ForecastResponse) : List<Forecast> {
-
-        return forecastResponse.list.map { response ->
-            Forecast(
-                    city = forecastResponse.city,
-                    weather = response.weather,
-                    speed = response.speed,
-                    rain = response.rain,
-                    pressure = response.pressure,
-                    degree = response.degree,
-                    temperature = response.temperature,
-                    date = response.date,
-                    humidity = response.humidity,
-                    clouds = response.clouds
-            )
-        }
-
-    }
-
-    fun mapEntityToDomain(forecastEntities: List<Forecast>) : List<ForecastModel> {
+    fun mapEntityToDomain(city: City, forecastEntities: List<Forecast>) : List<ForecastModel> {
 
         return forecastEntities.map { forecastEntity ->
             ForecastModel(
-                    forecastEntity.city?.name ?: "",
-                    forecastEntity.city?.country ?: "",
+                    city.name,
+                    city.country,
                     convertDate(forecastEntity.date),
                     forecastEntity.weather[0].description,
                     forecastEntity.temperature.temp_max.toInt(),

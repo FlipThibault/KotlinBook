@@ -1,5 +1,6 @@
 package com.flip.data.repository
 
+import com.flip.data.entity.network.City
 import com.flip.data.entity.network.Forecast
 import com.flip.data.mapper.ForecastEntityDataMapper
 import com.flip.data.repository.forecastdatasource.ForecastDataSource
@@ -24,8 +25,8 @@ class ForecastRepositoryImpl : ForecastRepository {
 
     override fun fetchForecastsByZipCode(zipCode: String, callback: ForecastRepository.Callback) {
         forecastDataSource.fetchByZipCode(zipCode, object: ForecastDataSource.Callback {
-            override fun onSuccess(forecasts: List<Forecast>) {
-                callback.onSuccess(forecasts = mapper.mapEntityToDomain(forecasts))
+            override fun onSuccess(city: City, forecasts: List<Forecast>) {
+                callback.onSuccess(forecasts = mapper.mapEntityToDomain(city, forecasts))
             }
 
             override fun onFailure(error: Error) {

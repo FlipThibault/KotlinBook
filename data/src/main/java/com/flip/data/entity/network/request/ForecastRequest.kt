@@ -1,7 +1,7 @@
-package com.flip.data.request
+package com.flip.data.entity.network.request
 
 import android.util.Log
-import com.flip.data.response.ForecastResponse
+import com.flip.data.entity.network.response.ForecastResponse
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
 import java.net.MalformedURLException

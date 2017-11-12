@@ -1,7 +1,7 @@
 package com.flip.data.repository.forecastdatasource
 
 import com.flip.data.mapper.ForecastEntityDataMapper
-import com.flip.data.request.ForecastRequest
+import com.flip.data.entity.network.request.ForecastRequest
 
 /**
  * Created by pthibau1 on 2017-11-01.
@@ -24,7 +24,7 @@ class ForecastNetworkDataSource : ForecastDataSource {
         forecastRequest.zipCode = zipCode
 
         forecastRequest.execute()?.let {
-            callback.onSuccess(mapper.mapResponseToEntity(it))
+            callback.onSuccess(it.city, it.list)
             return
         }
 
