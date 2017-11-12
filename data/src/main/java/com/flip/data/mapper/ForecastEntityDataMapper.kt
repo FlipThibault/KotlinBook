@@ -15,7 +15,7 @@ class ForecastEntityDataMapper {
 
         return forecastResponse.list.map { response ->
             Forecast(
-                    city = response.city,
+                    city = forecastResponse.city,
                     weather = response.weather,
                     speed = response.speed,
                     rain = response.rain,
@@ -34,12 +34,12 @@ class ForecastEntityDataMapper {
 
         return forecastEntities.map { forecastEntity ->
             ForecastModel(
-                    forecastEntity.city.name,
-                    forecastEntity.city.country,
+                    forecastEntity.city?.name ?: "",
+                    forecastEntity.city?.country ?: "",
                     convertDate(forecastEntity.date),
                     forecastEntity.weather[0].description,
-                    forecastEntity.temperature.max.toInt(),
-                    forecastEntity.temperature.min.toInt()
+                    forecastEntity.temperature.temp_max.toInt(),
+                    forecastEntity.temperature.temp_min.toInt()
             )
         }
 

@@ -3,6 +3,7 @@ package com.flip.data.request
 import android.util.Log
 import com.flip.data.response.ForecastResponse
 import com.google.gson.Gson
+import com.google.gson.JsonSyntaxException
 import java.net.MalformedURLException
 import java.net.URL
 
@@ -17,16 +18,19 @@ class ForecastRequest(var zipCode: String? = "") {
         private val COMPLETE_URL = "$URL&appId=$APP_ID&q="
     }
 
-    fun execute(): ForecastResponse {
+    fun execute(): ForecastResponse? {
         return try {
+            Log.d(javaClass.simpleName, COMPLETE_URL + zipCode)
             val jsonStr = URL(COMPLETE_URL + zipCode).readText() //don't use this on large responses
             Log.d(javaClass.simpleName, jsonStr)
             Gson().fromJson(jsonStr, ForecastResponse::class.java)
-        } catch( e: MalformedURLException) {
+        } catch(e: MalformedURLException) {
             Log.d(javaClass.simpleName, e.message)
-            ForecastResponse()
+            null
+        } catch(e: JsonSyntaxException) {
+            Log.d(javaClass.simpleName, e.message)
+            null
         }
-
     }
 
 }

@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+
+    <!-- BASE THEME -->
+
+    <color name="light_colorPrimary">#455a64</color>
+    <color name="light_colorPrimaryLight">#718792</color>
+    <color name="light_colorPrimaryDark">#1c313a</color>
+
+    <color name="light_colorSecondary">#69f0ae</color>
+    <color name="light_colorSecondaryLight">#9fffe0</color>
+    <color name="light_colorSecondaryDark">#2bbd7e</color>
+
+    <color name="light_textColorOnPrimary">#ffffff</color>
+    <color name="light_textColorOnSecondary">#000000</color>
+
+    <!-- GENERAL -->
+
+    <color name="positiveColor">#00c853</color>
+    <color name="negativeColor">#ff5252</color>
+    <color name="black_50">#80000000</color>
+
 </resources>

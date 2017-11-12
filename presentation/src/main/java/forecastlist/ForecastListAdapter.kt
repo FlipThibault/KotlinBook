@@ -62,7 +62,7 @@ class ForecastListAdapter(val dataProvider: DataProvider<ForecastListViewModel>)
 
     override fun getItemId(position: Int): Long {
         (dataProvider.getData().getItem(position) as? Identifiable<String>)?.let { idenfitifableItem ->
-            return idenfitifableItem.getIdentifier().toLong()
+            return idenfitifableItem.getIdentifier().hashCode().toLong()
         }
         throw ClassCastException("Your cell item (data) must implement Identifiable")
     }

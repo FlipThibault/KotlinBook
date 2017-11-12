@@ -23,6 +23,11 @@ class ForecastNetworkDataSource : ForecastDataSource {
     override fun fetchByZipCode(zipCode: String, callback: ForecastDataSource.Callback) {
         forecastRequest.zipCode = zipCode
 
-        callback.onSuccess(mapper.mapResponseToEntity(forecastRequest.execute()))
+        forecastRequest.execute()?.let {
+            callback.onSuccess(mapper.mapResponseToEntity(it))
+            return
+        }
+
+        callback.onFailure(Error("Could not fetch data"))
     }
 }

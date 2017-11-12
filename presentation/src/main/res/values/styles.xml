@@ -2,10 +2,35 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/light_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/light_colorPrimaryDark</item>
+        <item name="colorAccent">@color/light_colorSecondary</item>
+        <item name="android:colorBackground">@android:color/white</item>
+        <item name="android:navigationBarColor">@color/light_colorSecondaryDark</item>
+
+        <item name="autoCompleteTextViewStyle">@style/AutocompleteTextViewStyle</item>
+        <item name="android:dropDownItemStyle">@style/AutocompleteDropDownItemStyle</item>
+        <item name="android:dropDownListViewStyle">@style/DropdownListViewStyle</item>
+
+        <item name="colorControlNormal">@color/light_colorSecondaryDark</item>
+        <item name="colorControlActivated">@color/light_colorSecondaryDark</item>
+        <item name="colorControlHighlight">@color/light_colorSecondaryDark</item>
+    </style>
+
+    <style name="DropdownListViewStyle" parent="@style/Widget.AppCompat.ListView.DropDown">
+        <item name="android:divider">@color/light_colorSecondaryLight</item>
+        <item name="android:dividerHeight">1dp</item>
+    </style>
+
+    <style name="AutocompleteTextViewStyle" parent="Widget.AppCompat.Light.AutoCompleteTextView">
+        <item name="android:textColor">@color/light_colorPrimaryDark</item>
+        <item name="android:textColorHint">@color/light_colorPrimaryLight</item>
+        <item name="android:textSize">@dimen/default_text_size</item>
+        <item name="android:popupBackground">@color/light_colorPrimaryDark</item>
+    </style>
+
+    <style name="AutocompleteDropDownItemStyle" parent="@android:style/Widget.DropDownItem">
+        <item name="android:textColor">@color/light_colorSecondaryDark</item>
     </style>
 
 </resources>
