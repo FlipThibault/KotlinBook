@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Forecast App</string>
+    <string name="app_name">Weather App</string>
 
     <string name="forecast_list_autocomplete_text_view_hint">Enter City</string>
 </resources>

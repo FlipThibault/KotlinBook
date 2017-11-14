@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.flip.kotlinbook.forecastlist.ForecastListView
+    <com.flip.weatherapp.forecastlist.ForecastListView
         android:id="@+id/forecast_list_view_layout_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <com.flip.kotlinbook.base.error.ErrorView
+    <com.flip.weatherapp.base.error.ErrorView
         android:id="@+id/forecast_list_view_layout_error_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,7 +18,7 @@
         tools:visibility="gone"
         />
 
-    <com.flip.kotlinbook.base.SimpleLoadingView
+    <com.flip.weatherapp.base.SimpleLoadingView
         android:id="@+id/forecast_list_view_layout_loading_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
