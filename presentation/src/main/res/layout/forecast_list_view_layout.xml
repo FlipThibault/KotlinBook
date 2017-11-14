@@ -5,25 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <forecastlist.ForecastListView
+    <com.flip.kotlinbook.forecastlist.ForecastListView
         android:id="@+id/forecast_list_view_layout_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <base.error.ErrorView
+    <com.flip.kotlinbook.base.error.ErrorView
         android:id="@+id/forecast_list_view_layout_error_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
-        tools:visibility="visible"
+        tools:visibility="gone"
         />
 
-    <base.SimpleLoadingView
+    <com.flip.kotlinbook.base.SimpleLoadingView
         android:id="@+id/forecast_list_view_layout_loading_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
-        tools:visibility="visible"
+        tools:visibility="gone"
         />
 
 </android.support.constraint.ConstraintLayout>

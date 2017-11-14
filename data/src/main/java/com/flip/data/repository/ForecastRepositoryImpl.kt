@@ -4,7 +4,6 @@ import com.flip.data.entity.network.City
 import com.flip.data.entity.network.Forecast
 import com.flip.data.mapper.ForecastEntityDataMapper
 import com.flip.data.repository.forecastdatasource.ForecastDataSource
-import com.flip.data.repository.forecastdatasource.ForecastMemoryDataSourceImpl
 import com.flip.data.repository.forecastdatasource.ForecastNetworkDataSource
 import com.flip.domain.repository.ForecastRepository
 import java.lang.Error
@@ -18,7 +17,6 @@ class ForecastRepositoryImpl : ForecastRepository {
     private val mapper: ForecastEntityDataMapper
 
     init {
-        //forecastDataSource = ForecastMemoryDataSourceImpl()
         forecastDataSource = ForecastNetworkDataSource()
         mapper = ForecastEntityDataMapper()
     }
