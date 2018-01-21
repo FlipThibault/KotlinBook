@@ -10,9 +10,6 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
-/**
- * Created by FlipThibault on 2018-01-21.
- */
 @Module
 class PresenterModule(val view: Contract.View) {
 

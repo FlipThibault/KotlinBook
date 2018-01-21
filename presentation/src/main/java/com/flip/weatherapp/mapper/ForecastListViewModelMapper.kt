@@ -7,8 +7,6 @@ import com.flip.weatherapp.base.BasicListHeaderCellViewModel
 import com.flip.weatherapp.forecastlist.ForecastListViewModel
 
 /**
- * Created by pthibau1 on 2017-10-19.
- *
  * Map the forecast Data Model to ForecastListViewModel
  *
  * This class contains methods which prepare the data to be consumed by the view.
