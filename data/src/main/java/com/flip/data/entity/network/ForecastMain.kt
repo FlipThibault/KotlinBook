@@ -1,8 +1,5 @@
 package com.flip.data.entity.network
 
-/**
- * Created by pthibau1 on 2017-11-11.
- */
 data class ForecastMain(val temp: Double,
                         val temp_min: Double,
                         val temp_max: Double,

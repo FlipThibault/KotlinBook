@@ -4,9 +4,6 @@ import com.flip.data.entity.network.City
 import com.flip.data.entity.network.Forecast
 import java.lang.Error
 
-/**
- * Created by pthibau1 on 2017-10-21.
- */
 interface ForecastDataSource {
 
     interface Callback {

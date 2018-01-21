@@ -3,9 +3,6 @@ package com.flip.data.repository.forecastdatasource
 import com.flip.data.entity.network.*
 import java.util.*
 
-/**
- * Created by pthibau1 on 2017-10-21.
- */
 class ForecastMemoryDataSource : ForecastDataSource {
 
     private val city = City(0, "Montreal", Coordinate(34.4F, 34.5F), "Canada", 2000000)

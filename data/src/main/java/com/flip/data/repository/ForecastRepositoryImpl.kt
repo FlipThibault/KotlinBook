@@ -8,9 +8,6 @@ import com.flip.data.repository.forecastdatasource.ForecastNetworkDataSource
 import com.flip.domain.repository.ForecastRepository
 import java.lang.Error
 
-/**
- * Created by pthibau1 on 2017-10-30.
- */
 class ForecastRepositoryImpl : ForecastRepository {
 
     private val forecastDataSource: ForecastDataSource

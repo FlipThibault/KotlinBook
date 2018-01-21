@@ -8,14 +8,18 @@ import android.widget.ArrayAdapter
 import com.flip.weatherapp.R
 import com.flip.weatherapp.base.error.ErrorView
 import com.flip.weatherapp.base.error.ErrorViewModel
+import com.flip.weatherapp.di.component.DaggerPresenterComponent
+import com.flip.weatherapp.di.module.PresenterModule
+import javax.inject.Inject
 
 class ForecastListActivity : AppCompatActivity(), Contract.View {
 
     private var mainView: ForecastListView? = null
     private var errorView: ErrorView? = null
     private var loadingView: View? = null
-    private val presenter: ForecastListPresenter = ForecastListPresenter(this)
-    private val adapter : ForecastListAdapter = ForecastListAdapter(presenter)
+    @Inject
+    lateinit var presenter: ForecastListPresenter
+    private lateinit var adapter : ForecastListAdapter
 
     init {}
 
@@ -24,9 +28,14 @@ class ForecastListActivity : AppCompatActivity(), Contract.View {
 
         setContentView(R.layout.forecast_list_view_layout)
 
+        val component = DaggerPresenterComponent.builder().presenterModule(PresenterModule(this)).build()
+        component.inject(this)
+
         mainView = findViewById(R.id.forecast_list_view_layout_view)
         errorView = findViewById(R.id.forecast_list_view_layout_error_view)
         loadingView = findViewById(R.id.forecast_list_view_layout_loading_view)
+
+        adapter = ForecastListAdapter(presenter)
 
         mainView?.let {
 

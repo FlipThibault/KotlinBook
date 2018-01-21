@@ -1,8 +1,5 @@
 package com.flip.data.entity.network
 
-/**
- * Created by pthibau1 on 2017-11-01.
- */
 data class Temperature(val temp: Float,
                        val temp_min: Float,
                        val temp_max: Float,

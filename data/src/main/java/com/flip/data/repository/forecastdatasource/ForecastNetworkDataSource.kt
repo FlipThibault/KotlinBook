@@ -3,9 +3,6 @@ package com.flip.data.repository.forecastdatasource
 import com.flip.data.mapper.ForecastEntityDataMapper
 import com.flip.data.entity.network.request.ForecastRequest
 
-/**
- * Created by pthibau1 on 2017-11-01.
- */
 class ForecastNetworkDataSource : ForecastDataSource {
 
     val forecastRequest: ForecastRequest

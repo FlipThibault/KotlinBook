@@ -10,8 +10,6 @@ import com.flip.weatherapp.base.BasicListHeaderCellVIew
 import com.flip.weatherapp.base.BasicListHeaderCellViewModel
 
 /**
- * Created by pthibau1 on 2017-10-17.
- *
  * The adapter should coordinate the events from the recycler view. It should also know
  * which view to inflate for specific cell type. However it delegates all logic to a
  * specific "RecyclerAdapterDelegate" which is in charge of any logic. The specific view bindings

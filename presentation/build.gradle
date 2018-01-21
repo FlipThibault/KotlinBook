@@ -1,10 +1,12 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     dependencies {
 //        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
@@ -30,18 +32,29 @@ android {
     }
 }
 
+kapt {
+    generateStubs = true
+}
+
 dependencies {
 
     compile project(':domain')
     compile project(':data')
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation "com.android.support:appcompat-v7:$appCompat_version"
-    implementation "com.android.support:appcompat-v7:$appCompat_version"
-    implementation "com.android.support:recyclerview-v7:$appCompat_version"
-    implementation "org.jetbrains.anko:anko-common:$anko_version"
-    implementation "com.android.support.constraint:constraint-layout:$constraint_layout_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:" + rootProject.ext.kotlin_version
+    implementation "com.android.support:appcompat-v7:" + rootProject.ext.appCompat_version
+    implementation "com.android.support:recyclerview-v7:" + rootProject.ext.appCompat_version
+    implementation "org.jetbrains.anko:anko-common:" + rootProject.ext.anko_version
+    implementation "com.android.support.constraint:constraint-layout:" + rootProject.ext.constraint_layout_version
+
+    //Dagger2
+    kapt 'com.google.dagger:dagger-compiler:2.5'
+    compile 'com.google.dagger:dagger:2.5'
+
+    // ViewModel and LiveData
+    implementation "android.arch.lifecycle:extensions:1.0.0"
+    annotationProcessor "android.arch.lifecycle:compiler:1.0.0"
 
     compile 'com.facebook.stetho:stetho:1.5.0'
     compile 'com.facebook.stetho:stetho-okhttp3:1.5.0'

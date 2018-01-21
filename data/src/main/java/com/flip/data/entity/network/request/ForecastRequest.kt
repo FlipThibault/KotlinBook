@@ -7,9 +7,6 @@ import com.google.gson.JsonSyntaxException
 import java.net.MalformedURLException
 import java.net.URL
 
-/**
- * Created by pthibau1 on 2017-11-01.
- */
 class ForecastRequest(var zipCode: String? = "") {
 
     companion object {

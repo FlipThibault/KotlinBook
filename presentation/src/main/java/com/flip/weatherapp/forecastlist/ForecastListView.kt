@@ -7,10 +7,6 @@ import android.util.AttributeSet
 import android.widget.AutoCompleteTextView
 import com.flip.weatherapp.R
 
-
-/**
- * Created by pthibau1 on 2017-10-17.
- */
 class ForecastListView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : ConstraintLayout(context, attrs, defStyleAttr) {
 
     val forecastList: RecyclerView

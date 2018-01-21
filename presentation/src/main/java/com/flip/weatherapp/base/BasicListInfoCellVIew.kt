@@ -6,9 +6,6 @@ import android.util.AttributeSet
 import android.widget.TextView
 import com.flip.weatherapp.R
 
-/**
- * Created by pthibau1 on 2017-10-19.
- */
 class BasicListInfoCellVIew(context: Context?, attrs: AttributeSet? = null, defStyle: Int = 0) : ConstraintLayout(context, attrs, defStyle) {
 
     val text : TextView?

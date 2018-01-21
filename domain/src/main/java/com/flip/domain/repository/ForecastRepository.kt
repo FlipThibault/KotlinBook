@@ -2,9 +2,6 @@ package com.flip.domain.repository
 
 import com.flip.domain.model.ForecastModel
 
-/**
- * Created by pthibau1 on 2017-10-30.
- */
 interface ForecastRepository {
 
     interface Callback {

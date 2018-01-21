@@ -1,12 +1,10 @@
 package com.flip.weatherapp.forecastlist
 
+import com.flip.weatherapp.base.BasicListHeaderCellViewModel
 import com.flip.weatherapp.base.ListItemViewModel
 import com.flip.weatherapp.base.ListViewModel
-import com.flip.weatherapp.base.BasicListHeaderCellViewModel
 
 /**
- * Created by pthibau1 on 2017-10-17.
- *
  * Should be a direct model representation of the data in the list (with headers, sort applied, etc)
  */
 class ForecastListViewModel(val items : List<ListItemViewModel>) : ListViewModel {

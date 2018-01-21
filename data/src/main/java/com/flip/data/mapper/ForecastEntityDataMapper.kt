@@ -6,9 +6,6 @@ import com.flip.domain.model.ForecastModel
 import java.text.DateFormat
 import java.util.*
 
-/**
- * Created by pthibau1 on 2017-11-01.
- */
 class ForecastEntityDataMapper {
 
     fun mapEntityToDomain(city: City, forecastEntities: List<Forecast>) : List<ForecastModel> {
