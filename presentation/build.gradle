@@ -49,8 +49,11 @@ dependencies {
     implementation "com.android.support.constraint:constraint-layout:" + rootProject.ext.constraint_layout_version
 
     //Dagger2
-    kapt 'com.google.dagger:dagger-compiler:2.5'
-    compile 'com.google.dagger:dagger:2.5'
+    kapt "com.google.dagger:dagger-compiler:$rootProject.dagger_version"
+    compile "com.google.dagger:dagger:$rootProject.dagger_version"
+    compile "com.google.dagger:dagger-android:$rootProject.dagger_version"
+    compile "com.google.dagger:dagger-android-support:$rootProject.dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$rootProject.dagger_version"
 
     // ViewModel and LiveData
     implementation "android.arch.lifecycle:extensions:1.0.0"

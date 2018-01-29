@@ -1,16 +1,19 @@
 package com.flip.weatherapp.forecastlist
 
+import com.flip.data.repository.ForecastRepositoryImpl
+import com.flip.domain.fetchForecastsUseCase.FetchForcastsInteractorImpl
 import com.flip.weatherapp.base.DataProvider
 import com.flip.weatherapp.base.error.ErrorViewActionDelegate
 import com.flip.weatherapp.base.error.ErrorViewModelImpl
 import com.flip.weatherapp.mapper.ForecastListViewModelMapper
 import com.flip.domain.fetchForecastsUseCase.FetchForecastsInteractor
 import com.flip.domain.model.ForecastModel
+import com.flip.weatherapp.di.PerActivity
 import org.jetbrains.anko.async
 import org.jetbrains.anko.uiThread
 
-class ForecastListPresenter(val view: Contract.View,
-                            val fetchItemsInteractor: FetchForecastsInteractor) : Contract.Presenter, DataProvider<ForecastListViewModel>, ErrorViewActionDelegate {
+@PerActivity
+class ForecastListPresenter(val view: Contract.View, val fetchItemsInteractor: FetchForecastsInteractor) : Contract.Presenter, DataProvider<ForecastListViewModel>, ErrorViewActionDelegate {
 
     val dataMapper: ForecastListViewModelMapper = ForecastListViewModelMapper()
     var viewModel: ForecastListViewModel? = null

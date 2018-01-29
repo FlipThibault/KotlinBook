@@ -1,27 +1,22 @@
 package com.flip.weatherapp
 
-import android.app.Application
 import com.facebook.stetho.Stetho
-import com.flip.weatherapp.di.component.ApplicationComponent
-import com.flip.weatherapp.di.component.DaggerApplicationComponent
-import com.flip.weatherapp.di.module.AppModule
+import com.flip.weatherapp.di.DaggerAppComponent
+import dagger.android.AndroidInjector
+import dagger.android.DaggerApplication
 
-class WeatherApplication : Application() {
-
-    val component: ApplicationComponent by lazy {
-        DaggerApplicationComponent
-                .builder()
-                .appModule(AppModule(this))
-                .build()
-    }
+class WeatherApplication : DaggerApplication() {
 
     override fun onCreate() {
         super.onCreate()
-
-        component.inject(this)
 
         if(BuildConfig.DEBUG)
             Stetho.initializeWithDefaults(this)
     }
 
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+        return DaggerAppComponent.builder()
+                .application(this)
+                .build()
+    }
 }

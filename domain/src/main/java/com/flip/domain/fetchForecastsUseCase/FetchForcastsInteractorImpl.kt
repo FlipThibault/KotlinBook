@@ -5,7 +5,7 @@ import com.flip.domain.repository.ForecastRepository
 
 class FetchForcastsInteractorImpl(val repository: ForecastRepository) : FetchForecastsInteractor {
 
-    //Make this singleton managed by dagger eventually
+    //Make this singleton managed by dagger
 
     override fun fetchForecastsByZipCode(zipCode: String, callback: FetchForecastsInteractor.Callback) {
         repository.fetchForecastsByZipCode(zipCode, object:ForecastRepository.Callback {
